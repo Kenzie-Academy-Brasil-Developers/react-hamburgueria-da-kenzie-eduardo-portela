@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext, IProductsState } from "../../context/CartContext";
 import { Button } from "../Button";
 import { CardLi } from "./style";
 
-export const ProductCard = ({ products, handleClick }) => {
+interface IProductCardProps {
+  products: IProductsState[];
+}
+
+export const ProductCard = ({ products }: IProductCardProps) => {
+  const { handleClick } = useContext(CartContext);
+
   return (
     <>
-      {products.map(({ id, img, name, category, price }) => (
+      {products.map(({ id, img, name, category, price }: IProductsState) => (
         <CardLi key={id}>
           <img src={img} alt="" />
           <div>

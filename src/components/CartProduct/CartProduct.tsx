@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext, IProductsState } from "../../context/CartContext";
 import { Button } from "../Button";
 import { CartLi } from "./style";
 
-export const CartProduct = ({ currentSale, removeFromList }) => {
+interface ICartProductProps {
+  removeFromList: (id: number) => void;
+  //map?: IProducts;
+}
+
+export const CartProduct = ({ removeFromList }: ICartProductProps) => {
+  const { currentSale } = useContext(CartContext);
+
   return (
     <>
       {currentSale.length > 0

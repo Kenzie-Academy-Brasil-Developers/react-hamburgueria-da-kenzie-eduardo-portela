@@ -1,7 +1,8 @@
+import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const NotifyError = (msg) => {
+export const NotifyError = (msg: string) => {
   toast.error(msg, {
     position: "top-center",
     autoClose: 2500,
@@ -14,7 +15,7 @@ export const NotifyError = (msg) => {
   });
 };
 
-export const NotifySucess = (msg) => {
+export const NotifySucess = (msg: string) => {
   toast.success(msg, {
     position: "top-center",
     autoClose: 2500,

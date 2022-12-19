@@ -5,6 +5,17 @@ export const Headers = styled.header`
   background-color: var(--color-grey-400);
   height: 139px;
 
+  .logout {
+    margin: 20px 20px 0 20px;
+    font-size: 30px;
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   div {
     margin: 0 auto;
   }
@@ -17,6 +28,11 @@ export const Headers = styled.header`
   span {
     font-size: var(--text-3);
     color: var(--brand-3);
+  }
+
+  input {
+    width: 420px;
+    max-width: 420px;
   }
 
   @media (min-width: 910px) {

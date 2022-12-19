@@ -29,7 +29,7 @@ export const DivInput = styled.div`
 
   @media (min-width: 910px) {
     margin: 0;
-    width: 425px;
+    //width: 425px;
     margin-right: 7px;
   }
 `;

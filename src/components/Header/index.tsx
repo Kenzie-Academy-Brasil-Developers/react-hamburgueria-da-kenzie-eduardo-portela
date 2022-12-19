@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Headers } from "./style";
+import { CiLogout } from "react-icons/ci";
+import { UserContext } from "../../context/UserContext";
 
-export const Header = ({ showProducts }) => {
+interface IHeaderProps {
+  showProducts: (inputText: string) => void;
+}
+
+export const Header = ({ showProducts }: IHeaderProps) => {
   const [textInput, setTextInput] = useState("");
+  const { logout } = useContext(UserContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
 
     showProducts(textInput);
@@ -20,11 +27,14 @@ export const Header = ({ showProducts }) => {
         </h1>
         <form onSubmit={handleSubmit}>
           <Input
-            handleInput={(event) => setTextInput(event.target.value)}
+            handleInput={(event: any) => setTextInput(event.target.value)}
             placeholder="Digitar pesquisa"
           >
             <Button type={"submit"} text="Pesquisar"></Button>
           </Input>
+          <button onClick={logout} className="logout">
+            <CiLogout />
+          </button>
         </form>
       </div>
     </Headers>
